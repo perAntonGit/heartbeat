@@ -6,113 +6,199 @@
 <title>Heartbeat</title>
 
 <style>
-:root{--blue:#081f3f;--red:#ffb3bd}
+:root{
+  --deep-blue:#0b2a4a;
+  --soft-blue:#355f8a;
+  --accent:#c94b5a;
+  --dark:#06172f;
+}
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--blue);color:white;font-family:Georgia,"Times New Roman",serif}
 
-.nav{
-  position:fixed;top:20px;left:20px;right:20px;z-index:10;
-  display:flex;justify-content:space-between;align-items:center
+body{
+  margin:0;
+  background:white;
+  color:var(--deep-blue);
+  font-family:Georgia,"Times New Roman",serif;
 }
+
+/* NAV */
+.nav{
+  position:fixed;
+  top:20px;
+  left:24px;
+  right:24px;
+  z-index:10;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
 .brand,.navlinks{
-  background:rgba(8,31,63,.55);
+  background:rgba(255,255,255,.55);
+  backdrop-filter:blur(8px);
   padding:10px 14px;
-  letter-spacing:.20em;
+  letter-spacing:.18em;
   text-transform:uppercase;
   font-size:12px;
-  text-shadow:0 2px 10px rgba(0,0,0,.7)
+  color:var(--deep-blue);
 }
-.brand{display:flex;align-items:center;gap:10px}
-.brand img{width:58px}
-.navlinks a{color:white;text-decoration:none;margin-left:16px}
 
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.brand img{width:58px}
+
+.navlinks a{
+  color:var(--deep-blue);
+  text-decoration:none;
+  margin-left:18px;
+}
+
+/* SECTIONS */
 section{
   position:relative;
   min-height:100vh;
   background-size:cover;
   background-position:center;
-  display:flex;
-  padding:8vw;
-  overflow:hidden
+  overflow:hidden;
 }
 
-section:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:1;
-  background:linear-gradient(to bottom,rgba(0,0,0,.08),rgba(0,0,0,.28))
-}
-
+/* text */
 .card{
-  position:relative;
+  position:absolute;
   z-index:3;
   max-width:560px;
   padding:0;
   background:none;
   border:none;
-  backdrop-filter:none;
 }
 
-h1{font-size:clamp(48px,8vw,96px);margin:0 0 12px;letter-spacing:.08em}
-h2{font-size:clamp(38px,6vw,72px);margin:0 0 16px;letter-spacing:.04em}
-p{font-size:clamp(19px,2.1vw,28px);line-height:1.45;margin:0 0 13px}
-h1,h2,p{text-shadow:0 3px 14px rgba(0,0,0,.65)}
-.red{color:var(--red)}
-.small{font-size:14px;letter-spacing:.22em;text-transform:uppercase}
+h1{
+  color:var(--deep-blue);
+  font-size:clamp(48px,8vw,92px);
+  letter-spacing:.06em;
+  margin:0 0 14px;
+}
 
-/* quiet-zone placements */
-.hero{align-items:flex-end}
-.hero .card{margin-bottom:8vh}
+h2{
+  color:var(--deep-blue);
+  font-size:clamp(34px,5vw,58px);
+  letter-spacing:.04em;
+  margin:0 0 16px;
+}
 
-.concept{align-items:flex-start}
-.concept .card{margin-top:18vh}
+p{
+  color:var(--deep-blue);
+  font-size:clamp(18px,2vw,25px);
+  line-height:1.45;
+  margin:0 0 12px;
+}
 
+.small{
+  font-size:14px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+}
+
+.red{color:var(--accent)}
+
+h1,h2,p{
+  text-shadow:0 2px 10px rgba(255,255,255,.38);
+}
+
+/* HERO — turquoise only once */
+.hero .card{
+  left:8vw;
+  bottom:12vh;
+}
+
+/* CONCEPT — calm marina */
+.concept .card{
+  left:8vw;
+  top:18vh;
+}
+
+/* SAILING — real Heartbeat photo */
 .sailing{
-  align-items:flex-start;
   background-image:url('IMG_6963.jpeg');
   background-position:center center;
 }
+
 .sailing .card{
-  margin-left:auto;
-  margin-top:8vh;
+  right:8vw;
+  top:14vh;
   max-width:520px;
 }
-.sailing:after{
-  background:linear-gradient(to right,transparent 45%,rgba(0,0,0,.30))
-}
 
-.nature{align-items:flex-start}
-.nature .card{margin-top:16vh}
-
-.waterpage{align-items:flex-start}
-.waterpage .card{margin-top:18vh}
-
-.closing{align-items:flex-end}
-.closing .card{margin-bottom:10vh}
-
-/* water shimmer only */
+/* subtle water animation only */
 .waterglint{
   position:absolute;
-  left:0;right:0;bottom:0;
+  left:0;
+  right:0;
+  bottom:0;
   height:28%;
   z-index:2;
   pointer-events:none;
-  background:linear-gradient(115deg,transparent 0%,rgba(255,255,255,.14) 45%,transparent 70%);
+  background:linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255,255,255,.18) 45%,
+    transparent 70%
+  );
   background-size:230% 100%;
   mix-blend-mode:screen;
-  animation:waterGlint 6s ease-in-out infinite
+  animation:waterGlint 6s ease-in-out infinite;
 }
+
 @keyframes waterGlint{
   0%{background-position:130% 0;opacity:.16}
   50%{opacity:.42}
   100%{background-position:-130% 0;opacity:.16}
 }
 
+/* EXPERIENCE */
+.experience .card{
+  right:8vw;
+  top:16vh;
+}
+
+/* NATURE */
+.nature .card{
+  left:8vw;
+  top:16vh;
+}
+
+/* WATER PHILOSOPHY */
+.waterpage .card{
+  left:8vw;
+  top:18vh;
+}
+
+/* CLOSING */
+.closing .card{
+  left:8vw;
+  top:16vh;
+}
+
+/* dark sections if needed */
+.dark h1,
+.dark h2,
+.dark p{
+  color:white;
+  text-shadow:0 3px 14px rgba(0,0,0,.7);
+}
+
+.dark .red{color:#ffb3bd}
+
+/* FOOTER */
 footer{
-  background:#06172f;
-  color:#ccc;
+  background:var(--dark);
+  color:#d8dde6;
   padding:26px 8vw;
   display:flex;
   justify-content:space-between;
@@ -120,8 +206,9 @@ footer{
   gap:24px;
   font-size:12px;
   letter-spacing:.18em;
-  text-transform:uppercase
+  text-transform:uppercase;
 }
+
 footer img{width:96px}
 </style>
 </head>
@@ -136,6 +223,7 @@ footer img{width:96px}
   <div class="navlinks">
     <a href="#concept">Concept</a>
     <a href="#sailing">Sailing</a>
+    <a href="#experience">Onboard</a>
     <a href="#nature">Nature</a>
   </div>
 </div>
@@ -167,6 +255,15 @@ footer img{width:96px}
   </div>
 </section>
 
+<section id="experience" class="experience" style="background-image:url('marina_night.jpg')">
+  <div class="card">
+    <h2>Onboard</h2>
+    <p>Not a passenger.</p>
+    <p>Part of the system.</p>
+    <p class="red">Shared purpose begins on deck.</p>
+  </div>
+</section>
+
 <section id="nature" class="nature" style="background-image:url('bird_motacilla.jpg')">
   <div class="card">
     <h2>Nature</h2>
@@ -186,8 +283,9 @@ footer img{width:96px}
 <section class="closing" style="background-image:url('hero_turquoise.jpg')">
   <div class="card">
     <h2>Closing</h2>
-    <p>Together we sail, maintain, and continuously improve — for ourselves and for the future.</p>
-    <p class="small">Heartbeat Sailing AS · in formation</p>
+    <p>Balance is not found.</p>
+    <p>It is maintained.</p>
+    <p class="small">Heartbeat continues.</p>
   </div>
 </section>
 
