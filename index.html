@@ -3,28 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Heartbeat · Sailing Partnership</title>
+<title>Heartbeat</title>
 
 <style>
 :root{--blue:#081f3f;--red:#ffb3bd}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:#081f3f;color:white;font-family:Georgia,"Times New Roman",serif}
+body{margin:0;background:var(--blue);color:white;font-family:Georgia,"Times New Roman",serif}
 
 .nav{
-  position:fixed;top:22px;left:24px;right:24px;z-index:10;
+  position:fixed;top:20px;left:20px;right:20px;z-index:10;
   display:flex;justify-content:space-between;align-items:center
 }
 .brand,.navlinks{
-  background:rgba(8,31,63,.72);
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.16);
-  padding:12px 16px;
-  letter-spacing:.22em;
+  background:rgba(8,31,63,.55);
+  padding:10px 14px;
+  letter-spacing:.20em;
   text-transform:uppercase;
-  font-size:12px
+  font-size:12px;
+  text-shadow:0 2px 10px rgba(0,0,0,.7)
 }
-.navlinks a{color:white;text-decoration:none;margin-left:18px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{width:58px}
+.navlinks a{color:white;text-decoration:none;margin-left:16px}
 
 section{
   position:relative;
@@ -32,38 +33,66 @@ section{
   background-size:cover;
   background-position:center;
   display:flex;
-  align-items:flex-end;
   padding:8vw;
   overflow:hidden
 }
+
 section:after{
   content:"";
   position:absolute;
   inset:0;
   z-index:1;
-  background:linear-gradient(to bottom,rgba(0,0,0,.05),rgba(0,0,0,.58))
+  background:linear-gradient(to bottom,rgba(0,0,0,.08),rgba(0,0,0,.28))
 }
+
 .card{
   position:relative;
   z-index:3;
-  max-width:780px;
-  background:rgba(8,31,63,.64);
-  backdrop-filter:blur(9px);
-  padding:42px;
-  border:1px solid rgba(255,255,255,.18)
+  max-width:560px;
+  padding:0;
+  background:none;
+  border:none;
+  backdrop-filter:none;
 }
-h1{font-size:clamp(44px,8vw,96px);margin:0 0 14px;letter-spacing:.08em}
-h2{font-size:clamp(34px,6vw,68px);margin:0 0 16px;letter-spacing:.04em}
-p{font-size:clamp(18px,2.1vw,26px);line-height:1.45;margin:0 0 13px}
-.small{font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:#ddd}
-.red{color:var(--red)}
 
-.sail{
+h1{font-size:clamp(48px,8vw,96px);margin:0 0 12px;letter-spacing:.08em}
+h2{font-size:clamp(38px,6vw,72px);margin:0 0 16px;letter-spacing:.04em}
+p{font-size:clamp(19px,2.1vw,28px);line-height:1.45;margin:0 0 13px}
+h1,h2,p{text-shadow:0 3px 14px rgba(0,0,0,.65)}
+.red{color:var(--red)}
+.small{font-size:14px;letter-spacing:.22em;text-transform:uppercase}
+
+/* quiet-zone placements */
+.hero{align-items:flex-end}
+.hero .card{margin-bottom:8vh}
+
+.concept{align-items:flex-start}
+.concept .card{margin-top:18vh}
+
+.sailing{
+  align-items:flex-start;
   background-image:url('IMG_6963.jpeg');
   background-position:center center;
 }
+.sailing .card{
+  margin-left:auto;
+  margin-top:8vh;
+  max-width:520px;
+}
+.sailing:after{
+  background:linear-gradient(to right,transparent 45%,rgba(0,0,0,.30))
+}
 
-/* only water/light shimmer — boat and flags stay still */
+.nature{align-items:flex-start}
+.nature .card{margin-top:16vh}
+
+.waterpage{align-items:flex-start}
+.waterpage .card{margin-top:18vh}
+
+.closing{align-items:flex-end}
+.closing .card{margin-bottom:10vh}
+
+/* water shimmer only */
 .waterglint{
   position:absolute;
   left:0;right:0;bottom:0;
@@ -84,18 +113,26 @@ p{font-size:clamp(18px,2.1vw,26px);line-height:1.45;margin:0 0 13px}
 footer{
   background:#06172f;
   color:#ccc;
-  padding:42px 8vw;
-  font-size:13px;
+  padding:26px 8vw;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px;
+  font-size:12px;
   letter-spacing:.18em;
   text-transform:uppercase
 }
+footer img{width:96px}
 </style>
 </head>
 
 <body>
 
 <div class="nav">
-  <div class="brand">Heartbeat · Larvik · Norway</div>
+  <div class="brand">
+    <img src="heartbeat_cardio_inline.svg" alt="">
+    <span>Heartbeat · Larvik · Norway</span>
+  </div>
   <div class="navlinks">
     <a href="#concept">Concept</a>
     <a href="#sailing">Sailing</a>
@@ -103,7 +140,7 @@ footer{
   </div>
 </div>
 
-<section style="background-image:url('hero_turquoise.jpg')">
+<section class="hero" style="background-image:url('hero_turquoise.jpg')">
   <div class="card">
     <h1>HEARTBEAT</h1>
     <p class="small">Private ownership · Shared purpose</p>
@@ -111,7 +148,7 @@ footer{
   </div>
 </section>
 
-<section id="concept" style="background-image:url('marina_night.jpg')">
+<section id="concept" class="concept" style="background-image:url('marina_night.jpg')">
   <div class="card">
     <h2>The Concept</h2>
     <p>Heartbeat is a privately operated sailing yacht structured for shared ownership, long-term use, and system-level performance.</p>
@@ -120,7 +157,7 @@ footer{
   </div>
 </section>
 
-<section id="sailing" class="sail">
+<section id="sailing" class="sailing">
   <div class="waterglint"></div>
   <div class="card">
     <h2>Sailing</h2>
@@ -130,7 +167,7 @@ footer{
   </div>
 </section>
 
-<section id="nature" style="background-image:url('bird_motacilla.jpg')">
+<section id="nature" class="nature" style="background-image:url('bird_motacilla.jpg')">
   <div class="card">
     <h2>Nature</h2>
     <p>Motacilla flava on the wire — a small traveller above deep blue water.</p>
@@ -138,7 +175,7 @@ footer{
   </div>
 </section>
 
-<section style="background-image:url('water_texture.jpg')">
+<section class="waterpage" style="background-image:url('water_texture.jpg')">
   <div class="card">
     <h2>So do you.</h2>
     <p>All oceans move together as one, and contain mostly water — true.</p>
@@ -146,7 +183,7 @@ footer{
   </div>
 </section>
 
-<section style="background-image:url('hero_turquoise.jpg')">
+<section class="closing" style="background-image:url('hero_turquoise.jpg')">
   <div class="card">
     <h2>Closing</h2>
     <p>Together we sail, maintain, and continuously improve — for ourselves and for the future.</p>
@@ -155,7 +192,9 @@ footer{
 </section>
 
 <footer>
-Fevang Sailing ENK · Established 2008 · Org. nr. 991 760 377
+  <span>Fevang Sailing ENK · Established 2008</span>
+  <img src="heartbeat_cardio_inline.svg" alt="Heartbeat logo">
+  <span>Larvik · Norway</span>
 </footer>
 
 </body>
