@@ -3,113 +3,111 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Heartbeat · Partner Offer</title>
+<title>Heartbeat · Sailing Partnership</title>
 
 <style>
-body{margin:0;font-family:Georgia,serif;background:#081f3f;color:white}
+:root{--blue:#081f3f;--red:#c8102e;--navy:#003b79}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--blue);color:white;font-family:Georgia,"Times New Roman",serif}
 
-/* SECTION */
+.nav{
+  position:fixed;top:22px;left:24px;right:24px;z-index:10;
+  display:flex;justify-content:space-between;align-items:center;
+  pointer-events:none
+}
+.brand,.navlinks{
+  background:rgba(8,31,63,.68);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.16);
+  padding:12px 16px;letter-spacing:.24em;text-transform:uppercase;font-size:12px
+}
+.navlinks a{color:white;text-decoration:none;margin-left:18px;pointer-events:auto}
+.brand{pointer-events:auto}
+
 section{
-  position:relative;
-  min-height:100vh;
-  background-size:cover;
-  background-position:center 48%;
-  display:flex;
-  align-items:flex-end;
-  padding:7vw;
-  overflow:hidden;
+  position:relative;min-height:100vh;background-size:cover;background-position:center;
+  display:flex;align-items:flex-end;padding:8vw;overflow:hidden
 }
-
-/* WATER MOVEMENT */
-section::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:inherit;
-  animation:waterMove 18s ease-in-out infinite alternate;
-  z-index:0;
-}
-
-@keyframes waterMove{
-  0%{transform:scale(1.02) translateY(0px)}
-  100%{transform:scale(1.05) translateY(-20px)}
-}
-
-/* DARK OVERLAY */
 section::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to bottom,rgba(0,0,0,.1),rgba(0,0,0,.5));
-  z-index:1;
+  content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to bottom,rgba(0,0,0,.08),rgba(0,0,0,.58))
 }
-
-/* TEXT CARD */
 .card{
-  position:relative;
-  z-index:3;
-  max-width:720px;
-  background:rgba(8,31,63,.65);
-  padding:40px;
-  backdrop-filter:blur(6px);
-  border:1px solid rgba(255,255,255,.2);
+  position:relative;z-index:3;max-width:780px;
+  background:rgba(8,31,63,.64);backdrop-filter:blur(8px);
+  padding:42px;border:1px solid rgba(255,255,255,.18)
 }
-
-/* TEXT */
-h2{font-size:48px;margin:0 0 15px}
-p{font-size:20px;line-height:1.5;margin:0 0 10px}
+h1{font-size:clamp(44px,8vw,96px);margin:0 0 14px;letter-spacing:.08em}
+h2{font-size:clamp(34px,6vw,68px);margin:0 0 16px;letter-spacing:.04em}
+p{font-size:clamp(18px,2.1vw,26px);line-height:1.45;margin:0 0 13px}
+.small{font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:#ddd}
 .red{color:#ffb3bd}
 
-/* FLAGS */
+/* SAIL SECTION */
+.sail{background-position:center 48%}
+
+/* CSS Norwegian flags */
 .flag{
-  position:absolute;
-  top:40px;
-  width:80px;
-  z-index:4;
-  animation:flagWave 3s ease-in-out infinite;
+  position:absolute;top:78px;width:112px;height:74px;background:var(--red);
+  z-index:5;filter:drop-shadow(0 8px 18px rgba(0,0,0,.35));
+  animation:flagWave 3.1s ease-in-out infinite;transform-origin:left center
 }
-
-.flag-left{left:30px}
-.flag-right{right:30px}
-
+.flag-left{left:34px}
+.flag-right{right:34px;animation-delay:.45s}
+.flag::before{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(to right,transparent 0 26%,white 26% 36%,var(--navy) 36% 44%,white 44% 54%,transparent 54%),
+    linear-gradient(to bottom,transparent 0 35%,white 35% 45%,var(--navy) 45% 55%,white 55% 65%,transparent 65%)
+}
 @keyframes flagWave{
-  0%{transform:rotate(0deg)}
-  50%{transform:rotate(2deg)}
-  100%{transform:rotate(0deg)}
+  0%,100%{transform:rotate(0deg) skewX(0deg) translateY(0)}
+  35%{transform:rotate(-1.6deg) skewX(-6deg) translateY(-2px)}
+  70%{transform:rotate(1.2deg) skewX(5deg) translateY(1px)}
 }
 
-/* TOP LABEL */
-.logo{
-  position:fixed;
-  top:20px;
-  left:20px;
-  z-index:5;
-  background:rgba(8,31,63,.7);
-  padding:10px 14px;
-  font-size:12px;
-  letter-spacing:.2em;
+/* subtle water glint on sailing section only */
+.sail .waterglint{
+  position:absolute;left:0;right:0;bottom:0;height:28%;z-index:2;
+  background:linear-gradient(115deg,transparent 0%,rgba(255,255,255,.12) 45%,transparent 70%);
+  background-size:230% 100%;mix-blend-mode:screen;
+  animation:waterGlint 5.5s ease-in-out infinite;pointer-events:none
+}
+@keyframes waterGlint{
+  0%{background-position:130% 0;opacity:.18}
+  50%{opacity:.45}
+  100%{background-position:-130% 0;opacity:.18}
+}
+
+footer{
+  background:#06172f;color:#ccc;padding:42px 8vw;
+  font-size:13px;letter-spacing:.18em;text-transform:uppercase
 }
 </style>
 </head>
 
 <body>
 
-<div class="logo">HEARTBEAT · LARVIK · NORWAY</div>
-
-<section style="background-image:url('marina_night.jpg')">
-
-  <!-- FLAGS -->
-  <img src="kepler_flag.png" class="flag flag-left">
-  <img src="kepler_flag.png" class="flag flag-right">
-
-  <div class="card">
-    <h2>Sailing</h2>
-    <p>Wind becomes structure. Motion becomes balance.</p>
-    <p>The rig loads, releases, and responds — continuously.</p>
-    <p class="red">You don’t control the system. You work with it.</p>
+<div class="nav">
+  <div class="brand">Heartbeat · Larvik · Norway</div>
+  <div class="navlinks">
+    <a href="#concept">Concept</a>
+    <a href="#sailing">Sailing</a>
+    <a href="#nature">Nature</a>
   </div>
+</div>
 
+<section style="background-image:url('hero_turquoise.jpg')">
+  <div class="card">
+    <h1>HEARTBEAT</h1>
+    <p class="small">Private ownership · Shared purpose</p>
+    <p>Salona 46 · Energy. Motion. Balance.</p>
+  </div>
 </section>
 
-</body>
-</html>
+<section id="concept" style="background-image:url('marina_night.jpg')">
+  <div class="card">
+    <h2>The Concept</h2>
+    <p>Heartbeat is a privately operated sailing yacht structured for shared ownership, long-term use, and system-level performance.</p>
+    <p><b>Not charter</b> — we sail for ourselves.</p>
+    <p><b
