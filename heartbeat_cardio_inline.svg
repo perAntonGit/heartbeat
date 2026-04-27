@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 210" role="img" aria-label="Heartbeat cardioline logo">
+  <g fill="none" stroke="#B21F2D" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 130 C48 110 78 110 105 130 L140 130 L158 82 L184 170 L215 104 L246 130"/>
+    <path d="M246 130 C250 86 304 64 342 104 C380 64 436 86 438 130"/>
+    <path d="M438 130 L480 130 L505 91 L532 165 L562 123 L610 130"/>
+  </g>
+  <text x="628" y="142" font-family="Times New Roman, Times, serif" font-style="italic" font-size="74" fill="#B21F2D">Heartbeat</text>
+</svg>

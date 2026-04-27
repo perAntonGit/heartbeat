@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heartbeat — Partner Offer V2.4</title>
+<style>
+:root{--blue-deep:#081F3F;--blue:#0A315F;--gold:#C8A96A;--canvas:#F5F2EB;--red:#B21F2D;--ink:#151512}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--blue-deep);color:white;font-family:Inter,Helvetica,Arial,sans-serif}
+h1,h2,.serif{font-family:"Times New Roman",Times,serif;font-weight:400}
+img{max-width:100%;display:block}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;height:72px;display:flex;justify-content:space-between;align-items:center;padding:14px 28px;background:linear-gradient(rgba(8,31,63,.9),rgba(8,31,63,0))}
+.nav-cardio{width:min(220px,42vw);filter:drop-shadow(0 2px 8px rgba(0,0,0,.45))}
+.nav-flag{width:46px;opacity:.9}
+section{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.content{position:relative;z-index:2;width:min(1120px,88vw);margin:0 auto}
+.hero .bg{background-image:url("assets/hero_turquoise.jpg");background-position:center}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,31,63,.80),rgba(8,31,63,.55) 35%,rgba(8,31,63,.18) 62%,rgba(8,31,63,0));z-index:1}
+.hero-text{width:min(520px,88vw);text-shadow:0 2px 10px rgba(0,0,0,.65)}
+h1{font-size:clamp(48px,8.8vw,116px);letter-spacing:.08em;line-height:.92;margin:0 0 22px}
+.kicker{font-size:clamp(13px,1.4vw,18px);letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.tagline{font-family:"Times New Roman",Times,serif;font-style:italic;font-size:clamp(21px,2.4vw,34px);margin:0 0 26px}
+.signature{font-family:"Times New Roman",Times,serif;font-style:italic;font-size:clamp(17px,1.7vw,24px);line-height:1.35;color:rgba(255,255,255,.9)}
+.red{color:var(--red);font-weight:700}
+.footer-line{position:absolute;left:7vw;bottom:34px;z-index:2;font-size:12px;letter-spacing:.28em;color:rgba(255,255,255,.62);text-transform:uppercase}
+.light{background:var(--canvas);color:var(--ink)}
+.light .content{padding:12vh 0}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:center}
+.page-title{font-family:"Times New Roman",Times,serif;color:var(--blue);font-size:clamp(34px,4.4vw,66px);letter-spacing:.03em;margin:0 0 28px}
+.body{font-size:clamp(17px,1.45vw,22px);line-height:1.55;max-width:560px}
+.water-card{min-height:74vh;background:url("assets/water_texture.jpg") center/cover;box-shadow:0 24px 70px rgba(0,0,0,.18);position:relative}
+.water-card:after{content:"";position:absolute;inset:0;background:rgba(8,31,63,.15)}
+.kepler{position:absolute;right:5vw;bottom:7vh;width:min(360px,34vw);color:var(--gold);opacity:.13;z-index:1}
+.role .bg{background-image:url("assets/banenor_role.jpg");background-position:center}
+.role:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,31,63,.92),rgba(8,31,63,.88) 43%,rgba(8,31,63,.25) 70%,rgba(8,31,63,.05));z-index:1}
+.role-panel{width:min(520px,90vw);text-shadow:0 2px 8px rgba(0,0,0,.35)}
+.role-title{color:var(--gold);font-family:"Times New Roman",Times,serif;font-size:clamp(28px,4vw,52px);line-height:1.05;margin:10px 0 28px}
+ul{padding-left:1.2em}li{margin:9px 0;font-size:clamp(16px,1.4vw,21px);line-height:1.4}
+.nature{margin-top:28px;font-family:"Times New Roman",Times,serif;font-style:italic;color:rgba(255,255,255,.82);font-size:clamp(15px,1.35vw,20px)}
+.micro{margin-top:30px;color:rgba(255,255,255,.60);font-size:13px;letter-spacing:.05em}
+.box{margin-top:28px;border:1px solid rgba(200,169,106,.75);padding:18px 20px;width:min(430px,100%)}
+.detail{background:var(--blue-deep)}
+.detail-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
+.bird-card{min-height:440px;background:url("assets/bird_motacilla.jpg") center/cover;position:relative;box-shadow:0 24px 70px rgba(0,0,0,.26)}
+.bird-card:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,31,63,.58),rgba(8,31,63,.08))}
+.motacilla{position:relative;z-index:2;padding:40px;height:100%;display:flex;flex-direction:column;justify-content:flex-end}
+.motacilla p{font-family:"Times New Roman",Times,serif;font-style:italic;font-size:clamp(20px,2.1vw,30px);line-height:1.25}
+.units{display:grid;grid-template-columns:repeat(10,1fr);gap:7px;margin:26px 0}
+.unit{border:1px solid var(--gold);padding:18px 6px;text-align:center;color:var(--blue);background:white}
+.unit.ceo{background:rgba(200,169,106,.25)}.unit.partner{background:rgba(10,49,95,.08)}
+.closing .bg{background-image:url("assets/marina_night.jpg");background-position:center}
+.closing:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,31,63,.72),rgba(8,31,63,.42)),linear-gradient(90deg,rgba(8,31,63,.35),rgba(8,31,63,.70));z-index:1}
+.close-text{margin-left:auto;width:min(480px,88vw);text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.contact{padding:9vh 0;background:var(--canvas);color:var(--ink)}
+@media(max-width:900px){nav{height:64px;padding:12px 18px}.nav-cardio{width:165px}.nav-flag{width:38px}.split,.detail-grid{grid-template-columns:1fr;gap:34px}.water-card{min-height:46vh}.role:after{background:rgba(8,31,63,.82)}.close-text{margin-left:0}.footer-line{left:24px;right:24px;font-size:10px;letter-spacing:.18em}.units{grid-template-columns:repeat(5,1fr)}}
+</style>
+</head>
+<body>
+<nav><img class="nav-cardio" src="assets/heartbeat_cardio_inline.svg" alt="Heartbeat logo"><img class="nav-flag" src="assets/kepler_flag.png" alt="Fevang Kepler flag logo"></nav>
+
+<section class="hero"><div class="bg"></div><div class="content"><div class="hero-text"><h1>HEARTBEAT</h1><p class="tagline">Energy. Motion. Balance.</p><p class="kicker">Partner Offer</p><p class="signature">All oceans move together as one —<br>and contain mostly water.<br><br><span class="red">So do you.</span></p></div></div><div class="footer-line">Private ownership · Shared purpose · Larvik · Norway</div></section>
+
+<section class="light"><div class="content split"><div><h2 class="page-title">The Concept</h2><p class="body">Heartbeat is a privately operated sailing yacht structured for shared ownership, long-term use, and system-level performance.</p><p class="body">Not charter — we sail for ourselves.<br>Not passive investment — we participate.</p><p class="body">A small group of capable owners who sail, understand, and improve the boat together.</p><p class="signature" style="color:var(--blue);margin-top:34px">All oceans move together as one,<br>and contain mostly water — true.<br><br><span class="red">So do you.</span></p></div><div class="water-card"></div></div><div class="kepler"><img src="assets/kepler_overlay.svg" alt=""></div></section>
+
+<section class="role"><div class="bg"></div><div class="content"><div class="role-panel"><p class="kicker">Your Role</p><h2 class="role-title">Co-Engineering Lead<br>Energy &amp; Systems</h2><p class="body" style="color:white">You will take a leading role in keeping Heartbeat’s energy systems efficient, reliable and future-ready.</p><ul><li>Battery system understanding and optimization</li><li>Charge / regeneration strategy</li><li>Monitoring and improving system performance</li><li>Supporting upgrades and long-term reliability</li></ul><p class="nature">Engineering, informed by nature —<br>with roots in biology and field experience.</p><p class="micro">Observation precedes control.</p><div class="box"><p class="kicker" style="margin-top:0">Heartbeat is not just sailed — it is engineered.</p><p class="small">The Captain retains final operational authority onboard.</p></div></div></div></section>
+
+<section class="detail"><div class="content detail-grid"><div class="bird-card"><div class="motacilla"><p>Motacilla flava<br>— stability through continuous adjustment.</p></div></div><div><h2 class="page-title" style="color:white">Balance in Motion</h2><p class="body" style="color:rgba(255,255,255,.86)">A line in tension. A bird adapting. A yacht in motion. Heartbeat’s philosophy is the same: observe, adjust, and maintain balance.</p></div></div></section>
+
+<section class="light"><div class="content split"><div><h2 class="page-title">Ownership</h2><p class="body">Heartbeat Sailing AS is structured in 10 equal units.</p><p class="body">4 units — managing owner / CEO signal<br>3 units — partner<br>3 units — partner</p><p class="body">Each 10% unit may be assigned to one named user. A 30% partner may therefore share with 2–3 people.</p></div><div><div class="units"><div class="unit ceo">1</div><div class="unit ceo">2</div><div class="unit ceo">3</div><div class="unit ceo">4</div><div class="unit partner">5</div><div class="unit partner">6</div><div class="unit partner">7</div><div class="unit partner">8</div><div class="unit partner">9</div><div class="unit partner">10</div></div><p class="body">Ownership is fixed. Usage is flexible. Responsibility remains anchored.</p></div></div></section>
+
+<section class="closing"><div class="bg"></div><div class="content"><div class="close-text"><h2 class="page-title" style="color:white">Closing</h2><p class="body" style="color:white">Heartbeat is structured for balance, usability and long-term stewardship.</p><p class="body" style="color:white">A small group who sail, maintain, and continuously improve — together.</p><p class="signature">All oceans move together as one,<br>and contain mostly water — true.<br><br><span class="red">So do you.</span></p><p class="kicker">Larvik · Norway · Heartbeat EST. 2021</p></div></div></section>
+
+<section class="contact"><div class="content split"><div><h2 class="page-title">Next Step</h2><p class="body">Sail together again, then align on structure, timing, and role.</p></div><div><p class="body"><strong>Fevang Sailing ENK</strong><br>Established 2008 · Org.nr. 991 760 377</p><p class="body">Preparing transfer of S/Y Heartbeat to Heartbeat Sailing AS.</p></div></div></section>
+</body></html>
